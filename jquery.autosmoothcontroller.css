@@ -1,0 +1,140 @@
+@charset "utf-8";
+/* =================================
+
+* jQuery AutoSmoothController
+* (https://github.com/Manabu-Fukai/AutoSmothController.js)
+*
+* Copyright(c) 2014 Manabu Fukai
+* Licensed under the MIT license.
+*
+* Depends:
+*  jQuery UI
+*  jQuery UI Touch Punch
+*  jQuery Cookie Plugin
+
+================================= */
+
+/*Setting*/
+#control{
+    width: 35px;
+    padding: 45px 5px 5px;
+    position: fixed;
+    cursor: move;
+    margin: 0;
+    font-size: 14px;
+    line-height: 2;
+    list-style: none;
+    text-align: center;
+    background:url(images/cntbg.png) no-repeat 50% 0;
+    z-index: 40;
+}
+    #control.draggable-false{ cursor: default; }
+
+#control li{
+    cursor: pointer;
+    position: relative;
+    padding: 3px 5px;
+}
+    #control li:before{
+        display: inline-block;
+        font-family: 'icomoon';
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1;
+        content: '\e602';
+    }
+    #topback:before,.last:before{font-size: 1.3em;margin-left: -2px;}
+    #topback:before{content: '\e603'!important;}
+    #control li.last:before{content: '\e604'!important;}
+
+#control .active:before {
+text-shadow: 0 0 12px rgba(35, 193, 224,.8);
+color: rgba(35, 193, 224,.8);
+}
+
+/* Tips */
+.tips {
+background-color: #333;
+background-color: rgba(0, 0, 0, 0.8);
+border-radius: 3px;
+color: #fff;
+display: none;
+padding:2px 13px;
+position: absolute;
+right: 32px;
+top: -13px;
+z-index: 200;
+white-space: nowrap;
+}
+.tips:before {
+border:5px solid transparent;
+content: '';
+position: absolute;
+border-left: 10px solid #333;
+border-left: 10px solid rgba(0, 0, 0, 0.8);
+top:50%;
+margin-top: -5px;
+right: -15px;
+}
+
+.reverse .tips{
+    right: auto;
+    left: 32px;
+}
+.reverse .tips:before{
+    border-left: none;
+    border-right: 10px solid #333;
+    border-right: 10px solid rgba(0, 0, 0, 0.8);
+    right: auto;
+    left: -10px;
+}
+
+
+/*======================================================
+
+ Option Themes
+======================================================*/
+/*Default Style*/
+#control.default{
+    background: rgba(255,255,255,.1);
+    border-radius: 2px;
+    box-shadow: 1px 1px 7px rgba(0,0,0,.2);
+}
+
+
+/* "Smart" -- Simple & Sharp Style */
+#control.smart{
+width: 30px;
+padding: 5px;
+background: none
+}
+#control.smart li:before{
+    content: '\e605'
+}
+    .smart #topback:before,.smart .last:before{font-size: 1em;margin-left: 0px;}
+    .smart #topback:before{content: '\e600'!important;}
+    #control.smart li.last:before{content: '\e601'!important;}
+
+/* "Tab" -- Likes Tab Style
+ **I thisk this style compatible 'Option:stik'.  */
+#control.likeTab{
+    width: 40px;
+    padding: 0;
+    background: none
+}
+    #control.likeTab li{ background: url(images/controller_back.png) no-repeat 0 -50px;}
+    .likeTab #topback{background-position: 0 0!important;padding-top: 24px;}
+    .likeTab .last{background-position: 0 100%!important;padding:3px 5px 24px!important;}
+
+    #control.reverse.likeTab li{ background: url(images/controller_back.png) no-repeat 100% -50px;}
+    .reverse.likeTab #topback{background-position: 100% 0!important;}
+    .reverse.likeTab .last{background-position: 100% 100%!important;}
+
+.likeTab .tips{
+    right: 42px;
+}
+    .likeTab #topback .tips{top: 3px;}
+.reverse.likeTab .tips{
+    right: auto;
+    left: 42px;
+}
