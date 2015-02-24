@@ -1,8 +1,5 @@
 #jQuery AutoSmothController Plugin
 
-This plug-in is a page within the smooth scrolling plug-in that specializes in the weblog for.
-Please see the demo and documentation for more details.
-
 ブログでの使用に特化したページスムーズスクロールプラグインです。
 様々なリッチな機能を搭載し、閲覧者のユーザビリティの向上と共に、そのほとんどを自動的に出力するため記述の負担を大きく軽減するができます。
 様々な条件下での使用を想定している為、豊富なオプションを用意しそれに対応しています。
@@ -28,7 +25,7 @@ and AutoSmoothScroller.css.
     <script src="jquery.ui.touch-punch.min.js"></script> //For mobile draggable patch
     <script src="jquery.autosmoothcontroller.js"></script>
     /* or */
-    <script src="jquery.autosmoothcontroller.min.js"></script> //jquery.cookie.js&ui.touch-punch packed.
+    <script src="jquery.autosmoothcontroller.pkd.js"></script> //jquery.cookie.js&ui.touch-punch packed.
 
 
 
@@ -39,7 +36,17 @@ and AutoSmoothScroller.css.
     });
 
 ##Options
-| Key          | default          | Descripiton
+
+オプションは下記のように指定できます。
+
+    $(window).load(function(){
+      $('#element').autosmoothcontroller({
+         Key1: Value,
+         Key2: Value
+      });
+    });
+
+| Key          | default Value    | Descripiton
 |:-------------|:-----------------|:------------------------------------------------------------------------------------|
 | target       | '.section'       | アンカーにする要素を指定                                                                 |
 | speed        | 1200             | アンカーまでのスクロールスピード（ミリ秒）                                                  |
@@ -52,12 +59,12 @@ and AutoSmoothScroller.css.
 | addLast      | true             | コントローラーの最後のボタンにスタイルを付与します。                                          |
 | easing       | 'swing'          | イージング。jQuery Easing Pluginを併用することができます。                                 |
 | autoStrings  | true             | アンカー要素内のテキストを自動取得します。                                                  |
-| maxStrings   | 15               | Tipsに表示するテキストの最大文字数。                                                      |
+| maxStrings   | 15               | Tipsに表示するautoStringsで取得したテキストの最大文字数。                                   |
 | autoReverse  | true             | 画面左右でTipsの向きを反転させます。（draggable完了後に反映）                                |
-| dataname     | 'name'           | Tipsのテキストを任意のdata属性から取得させられます。                                        |
+| dataname     | 'asc'            | Tipsのテキストを任意のdata属性から取得させられます。data属性からのテキスト取得時はmaxStringは影響しません。       |
 | message      | 'section'        | autoStringsがfalseかつ、data属性の指定が無かった際に表示するテキスト。（messageのテキスト+連番） |
-| draggable    | true             | jqueryUI(http://jqueryui.com/draggable/)参照                                         |
-| axis         | false            | jqueryUI(http://jqueryui.com/draggable/)参照                                         |
+| draggable    | true             | コントローラのドラッグ移動をONにします。移動後の位置はCookieに保存され、ページ移動後や次回閲覧時も反映されます。                       |
+| axis         | false            | [jqueryUI参照 ](http://jqueryui.com/draggable/)                                        |
 | period       | 14               | Cookieの保存期間                                                                      |
 | customClass  | 'default'        | カスタムclassを付与します。                                                             |
 
@@ -67,13 +74,14 @@ and AutoSmoothScroller.css.
 <http://glitter-style.jp/labo/web-resource/jquery-autosmoothcontroller/>
 
 ##DEMO
+各オプションを指定した際、どのように働くかをすべて確認できるDEMOページも用意しています。  
 [DEMO Page](http://glitter-style.jp/labo/products/AutoSmoothController.js/)
 
 ##Dependencies
 
 jQuery 1.8+  
 jQueryUI 1.8+  
-jquery.cookie.js
+jquery.cookie.js  
 jquery.ui.touch-punch.js
 
 
