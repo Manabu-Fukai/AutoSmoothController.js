@@ -283,7 +283,7 @@ var deviceW,deviceH;
 				if($.cookie('ascLeft')!==undefined){
 					scrollNavi.css({left:parseInt($.cookie('ascLeft'))+deviceW,top:parseInt($.cookie('ascTop'))+deviceH });
 				}else{
-					scrollNavi.css({left:navLeft+deviceW,top:navTop+deviceH});
+					scrollNavi.css({left:parseInt(navLeft)+deviceW,top:parseInt(navTop)+deviceH});
 				}
 				navTop=scrollNavi.css('top'),
 				navLeft=scrollNavi.css('left');
